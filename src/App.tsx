@@ -23,7 +23,7 @@ function App(props) {
 
     const e = await ee.json();
     if (params.includes("debug")) {
-      e.TotalItemCount = 99999997 + inc.current;
+      e.TotalItemCount = 99999990 + inc.current;
     }
     inc.current += 1;
     if (e.TotalItemCount.toString().length === 8) {
