@@ -6,10 +6,10 @@
   --digit-width: calc(var(--screen-width) / 4 - var(--digit-margin) * 2);
   --thin-digit-width: calc(var(--screen-width) / 5 - var(--digit-margin) * 2);
   --digit-height: calc(var(--screen-height) - var(--digit-margin) * 2 - 100px);
-  --digit-bg-color: hotpink;
-  --digit-bg-color2: pink;
-  --digit-border-color: red;
-  --digit-font-color: black;
+  --digit-bg-color: #333;
+  --digit-bg-color2: #555;
+  --digit-border-color: #222;
+  --digit-font-color: #ddd;
   --digit-font-size: calc(var(--digit-height) * 0.85);
   --thin-font-size: calc(var(--digit-height) * 0.65);
 

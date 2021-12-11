@@ -3,13 +3,17 @@ import { useEffect, useState, useRef } from "react";
 import "./App.css";
 import Counter from "./Counter.tsx";
 
+const params = window.location.search.substr(1);
+
 function App(props) {
-  const [count, setCount] = useState(9999);
+  const [count, setCount] = useState(localStorage.getItem(params) || "9999");
   const [mostSignificant, setMostSignificant] = useState(
-    window.location.search.substr(1).includes("mostSignificant")
+    params.includes("mostSignificant")
   );
 
-  const [thin, setThin] = useState(false);
+  const [thin, setThin] = useState(
+    localStorage.getItem(params + "thin") === "true"
+  );
   const inc = useRef(0);
 
   const randomCount = async () => {
@@ -18,7 +22,7 @@ function App(props) {
     );
 
     const e = await ee.json();
-    if (window.location.search.substr(1).includes("debug")) {
+    if (params.includes("debug")) {
       e.TotalItemCount = 99999997 + inc.current;
     }
     inc.current += 1;
@@ -45,9 +49,17 @@ function App(props) {
       }
     } else {
       setThin(false);
-      setCount("9999");
+      setCount("????");
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem(params, count);
+  }, [count]);
+
+  useEffect(() => {
+    localStorage.setItem(params + "thin", thin + "");
+  }, [thin]);
 
   useEffect(() => {
     const nowMillis = new Date().getMilliseconds();
