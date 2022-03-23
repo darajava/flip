@@ -157,3 +157,13 @@
     transform: rotateX(0deg);
   }
 }
+
+.easter {
+  color: #4b4b4b;
+  font-size: 5px;
+  position: absolute;
+  z-index: 1000;
+  top: 1026px;
+  left: 1947px;
+  width: 100px;
+}

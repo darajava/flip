@@ -7,7 +7,10 @@ type Props = {
   thinner: boolean;
 };
 
+const params = window.location.search.substr(1);
+
 function Counter(props: Props) {
+  const leastSignificant = !params.includes("mostSignificant");
   const [digitElements, setDigitElements] = useState([]);
   const [oldCount, setOldCount] = useState(props.count.toString());
   const [initial, setInitial] = useState(true);
@@ -23,6 +26,8 @@ function Counter(props: Props) {
       <div className={"bg4"}></div>
     </>
   );
+
+  const easterEgg = <span className="easter">hi lou</span>;
 
   const setDigitElementsFunc = (newNumber: number, refresh?: boolean) => {
     const newNumberArray = newNumber.toString().split("");
@@ -85,7 +90,12 @@ function Counter(props: Props) {
     // setThin(true);
   }, [props.thinner]);
 
-  return <div className="container">{digitElements}</div>;
+  return (
+    <div className="container">
+      {digitElements}
+      {leastSignificant && easterEgg}
+    </div>
+  );
 }
 
 export default Counter;
