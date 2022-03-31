@@ -27,7 +27,6 @@ function Counter(props: Props) {
     </>
   );
 
-  const easterEgg = <span className="easter">hi lou</span>;
 
   const setDigitElementsFunc = (newNumber: number, refresh?: boolean) => {
     const newNumberArray = newNumber.toString().split("");
@@ -93,7 +92,6 @@ function Counter(props: Props) {
   return (
     <div className="container">
       {digitElements}
-      {leastSignificant && easterEgg}
     </div>
   );
 }
